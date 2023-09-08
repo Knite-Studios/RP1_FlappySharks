@@ -10,62 +10,70 @@ public class GameManager : MonoBehaviour
     private Spawner spawner;
 
     [SerializeField]
-    private TMP_Text scoreText;    
+    private TMP_Text scoreText;
     [SerializeField]
     private GameObject PauseMenu;
     [SerializeField]
     private GameObject DeathMenu;
-    
 
     private bool paused = false;
+    private bool dead = false;
     public int score { get; private set; }
 
     private void Awake()
     {
         player = GetComponentInChildren<Player>();
         spawner = GetComponentInChildren<Spawner>();
+
+        DeathMenu.SetActive(false);
+        PauseMenu.SetActive(false);
     }
-    
+
     public void Retry()
     {
-
+        dead = false;
         score = 0;
         scoreText.text = score.ToString();
+
+        player.transform.position = player.originalPosition;
+        player.enabled = true;
 
         paused = false;
         DeathMenu.SetActive(false);
         PauseMenu.SetActive(false);
 
         Time.timeScale = 1f;
-       // player.enabled = true;
-
         Obstacles[] obstacles = FindObjectsOfType<Obstacles>();
 
         for (int i = 0; i < obstacles.Length; i++)
         {
             Destroy(obstacles[i].gameObject);
         }
+
+
     }
 
     public void GameOver()
     {
-       
+        dead = true;
         Time.timeScale = 0f;
-       // player.enabled = false;
-
-        DeathMenu.SetActive(true); 
+        player.enabled = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        PauseMenu.SetActive(false);
+        DeathMenu.SetActive(true);
     }
 
     public void Paused()
     {
         paused = true;
-
-        Cursor.lockState = CursorLockMode.Locked;
+        PauseMenu.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
         Time.timeScale = 0f;
 
-        PauseMenu.SetActive(false);
+        
     }
 
     public void IncreaseScore()
@@ -77,11 +85,11 @@ public class GameManager : MonoBehaviour
     public void exit()
     {
         Application.Quit();
-        EditorApplication.isPlaying = false;  
+        EditorApplication.isPlaying = false;
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))//get enter button
+        if (Input.GetKeyDown(KeyCode.Escape) && !dead)//get enter button
         {
             if (!paused)  //pause menu if not paused
                 Paused();
@@ -92,13 +100,18 @@ public class GameManager : MonoBehaviour
 
     public void Resume()
     {
-        paused = false;
+        if (!dead)
+        {
+            paused = false;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
 
-        Time.timeScale = 1f;
-       // player.enabled = true;
-       
+            Time.timeScale = 1f;
+            player.enabled = true;
+            PauseMenu.SetActive(false);
+        }
     }
+
+
 }

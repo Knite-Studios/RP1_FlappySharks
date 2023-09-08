@@ -1976,6 +1976,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 47fd5262d911ac447a1b787f78756921, type: 3}
   - {fileID: 21300000, guid: 47fd5262d911ac447a1b787f78756921, type: 3}
   - {fileID: 21300000, guid: 47fd5262d911ac447a1b787f78756921, type: 3}
+  originalPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &2098212874
 GameObject:
   m_ObjectHideFlags: 0
