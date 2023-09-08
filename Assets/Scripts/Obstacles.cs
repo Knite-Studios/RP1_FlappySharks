@@ -9,7 +9,7 @@ public class Obstacles : MonoBehaviour
 
 
     [SerializeField]
-    private float deadZone = -45;
+    private float deadZone = -15;
 
     // Start is called before the first frame update
     void Start()

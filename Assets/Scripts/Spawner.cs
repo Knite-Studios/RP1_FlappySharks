@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject prefab;
+    private GameObject[] prefabs;
 
     [SerializeField]
     private float spawnRate = 1f;
@@ -16,6 +16,7 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private float maxHeight = 2f;
 
+    int randomObstacle;
     // Start is called before the first frame update
     private void OnEnable()
     {
@@ -23,7 +24,8 @@ public class Spawner : MonoBehaviour
     }
     private void Spawn()
     {
-        GameObject obstacle = Instantiate(prefab, transform.position, Quaternion.identity);
+        randomObstacle = Random.Range(0, prefabs.Length);
+        GameObject obstacle = Instantiate(prefabs[randomObstacle], transform.position, Quaternion.identity);
         obstacle.transform.position += Vector3.up * Random.Range(minHeight, maxHeight);
     }
     private void OnDisable()
