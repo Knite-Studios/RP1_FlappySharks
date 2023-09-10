@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     private Spawner spawner;
 
     [SerializeField]
+    private TMP_Text highscoreText;
+    [SerializeField]
     private TMP_Text scoreText;
     [SerializeField]
     private GameObject PauseMenu;
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
     private bool paused = false;
     private bool dead = false;
     public int score { get; private set; }
+    private int highscore; // increments the value by 2 if its public, need to figure it out
 
     private void Awake()
     {
@@ -34,7 +37,7 @@ public class GameManager : MonoBehaviour
         dead = false;
         score = 0;
         scoreText.text = score.ToString();
-
+        highscoreText.text = highscore.ToString();
         player.transform.position = player.originalPosition;
         player.enabled = true;
 
@@ -62,6 +65,12 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
         PauseMenu.SetActive(false);
         DeathMenu.SetActive(true);
+        highscore = PlayerPrefs.GetInt("highscore", 0);//highscore = 0
+        if (highscore < score)//if new score greater than current highscore, then highscore=new score.
+        {
+            PlayerPrefs.SetInt("highscore", score);//save highscore
+        }
+        //else no change   
     }
 
     public void Paused()
@@ -80,6 +89,11 @@ public class GameManager : MonoBehaviour
     {
         score++;
         scoreText.text = score.ToString();
+        if (highscore < score)
+        {
+            highscore = score;
+            highscoreText.text = highscore.ToString();
+        }
     }
 
     public void exit()
