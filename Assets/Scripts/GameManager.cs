@@ -98,8 +98,7 @@ public class GameManager : MonoBehaviour
 
     public void exit()
     {
-        Application.Quit();
-        EditorApplication.isPlaying = false;
+        SceneManager.LoadScene("MainMenu");
     }
     private void Update()
     {

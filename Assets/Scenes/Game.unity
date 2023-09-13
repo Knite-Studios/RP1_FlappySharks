@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263b0813ee0a4124b8df34157e549fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 0.25
+  animationSpeed: 0.2
 --- !u!23 &8216933
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263b0813ee0a4124b8df34157e549fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 0.5
+  animationSpeed: 0.2
 --- !u!23 &205953301
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263b0813ee0a4124b8df34157e549fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 0.5
+  animationSpeed: 0.2
 --- !u!23 &217449090
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1244,7 +1244,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 3905772467613077065, guid: 2d21fd9237ba419459e6933322b287ff, type: 3}
   - {fileID: 3905772467613077065, guid: db3221cbd5f93614aaf592019f2a97d5, type: 3}
-  spawnRate: 1
+  spawnRate: 1.5
   minHeight: -1
   maxHeight: 0
 --- !u!4 &628479411
@@ -2625,7 +2625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263b0813ee0a4124b8df34157e549fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 0.5
+  animationSpeed: 0.2
 --- !u!23 &1600103771
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2723,7 +2723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263b0813ee0a4124b8df34157e549fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 1
+  animationSpeed: 0.5
 --- !u!23 &1691000184
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2787,7 +2787,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0000005364418, y: 0.00001013279}
+  m_Offset: {x: -0.0000005364418, y: -0.48270786}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2798,7 +2798,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 1}
+  m_Size: {x: 1.0000001, y: 0.03456402}
   m_EdgeRadius: 0
 --- !u!1 &1953256847
 GameObject:
@@ -3148,7 +3148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263b0813ee0a4124b8df34157e549fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 0.5
+  animationSpeed: 0.2
 --- !u!23 &2098212877
 MeshRenderer:
   m_ObjectHideFlags: 0
