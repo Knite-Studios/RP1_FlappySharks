@@ -23,11 +23,14 @@ public class GameManager : MonoBehaviour
     public int score { get; private set; }
     private int highscore; // increments the value by 2 if its public, need to figure it out
 
+  
+
     private void Awake()
     {
         player = GetComponentInChildren<Player>();
         spawner = GetComponentInChildren<Spawner>();
-
+        highscore = PlayerPrefs.GetInt("highscore", 0);
+        highscoreText.text = highscore.ToString();
         DeathMenu.SetActive(false);
         PauseMenu.SetActive(false);
     }
