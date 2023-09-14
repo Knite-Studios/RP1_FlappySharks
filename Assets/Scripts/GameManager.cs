@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         highscoreText.text = highscore.ToString();
         player.transform.position = player.originalPosition;
         player.enabled = true;
+        player.ResetGravity();
 
         paused = false;
         DeathMenu.SetActive(false);

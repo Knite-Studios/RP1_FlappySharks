@@ -66,5 +66,9 @@ public class Player : MonoBehaviour
             gameManager.IncreaseScore();
         }
     }
- 
+    public void ResetGravity()
+    {
+        direction.y = 0;
+    }
+
 }
