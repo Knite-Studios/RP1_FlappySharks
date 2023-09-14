@@ -18,13 +18,12 @@ public class Player : MonoBehaviour
     private Sprite[] sprites;
 
     private int spriteIndex;
-    GameManager gameManager;
+
     public Vector3 originalPosition;
     // Start is called before the first frame update
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        gameManager = FindObjectOfType<GameManager>();
         originalPosition = transform.position;
     }
 
@@ -59,11 +58,11 @@ public class Player : MonoBehaviour
 
         if (other.gameObject.tag == "obstacle")
         {
-            gameManager.GameOver();
+            GameManager.Instance.GameOver();
         }                                    
         else if (other.gameObject.tag == "score")
         {
-            gameManager.IncreaseScore();
+            GameManager.Instance.IncreaseScore();
         }
     }
     public void ResetGravity()
