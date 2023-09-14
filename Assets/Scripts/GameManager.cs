@@ -23,10 +23,12 @@ public class GameManager : MonoBehaviour
     public int score { get; private set; }
     private int highscore; // increments the value by 2 if its public, need to figure it out
 
-  
+    Timer timer;
 
     private void Awake()
     {
+        timer = GetComponentInChildren<Timer>();
+
         player = GetComponentInChildren<Player>();
         spawner = GetComponentInChildren<Spawner>();
         highscore = PlayerPrefs.GetInt("highscore", 0);
@@ -47,6 +49,8 @@ public class GameManager : MonoBehaviour
         paused = false;
         DeathMenu.SetActive(false);
         PauseMenu.SetActive(false);
+
+        timer.ResetTimer();
 
         Time.timeScale = 1f;
         Obstacles[] obstacles = FindObjectsOfType<Obstacles>();
@@ -73,7 +77,9 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("highscore", score);//save highscore
         }
-        //else no change   
+        //else no change
+        //
+        
     }
 
     public void Paused()

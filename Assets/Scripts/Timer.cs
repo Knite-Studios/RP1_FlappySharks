@@ -6,8 +6,8 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public float timeRemaining = 0;
-    public bool timeIsRunning = true;
+    private float timeRemaining = 0;
+    private bool timeIsRunning = true;
     public TMP_Text timeText;
     // Start is called before the first frame update
     void Start()
@@ -34,5 +34,10 @@ public class Timer : MonoBehaviour
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    public void ResetTimer()
+    {
+        timeRemaining = 0;
     }
 }
