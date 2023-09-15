@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2256778644803061003}
   m_Layer: 0
   m_Name: MineBottom
-  m_TagString: Collectable
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,10 +132,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3905772467613077066}
-  - component: {fileID: 8554705576306382631}
+  - component: {fileID: 4684092505534434610}
   m_Layer: 0
-  m_Name: speedup
-  m_TagString: Collectable
+  m_Name: Mine 2
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,7 +157,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8554705576306382631
+--- !u!114 &4684092505534434610
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,13 +166,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3905772467613077065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0753624328e0ab41b070ea5f57452e7, type: 3}
+  m_Script: {fileID: 11500000, guid: ff685bf535561a24e9703e7e2ad49b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollectAudio: {fileID: 0}
-  obstacles: {fileID: 4684092505534434610, guid: db3221cbd5f93614aaf592019f2a97d5, type: 3}
-  speedBoost: 5
-  boostDuration: 5
+  speed: 5.5
+  deadZone: -15
 --- !u!1 &3905772469172305548
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,8 @@ TagManager:
   tags:
   - score
   - obstacle
-  - Collectable
+  - collectable
+  - border
   layers:
   - Default
   - TransparentFX

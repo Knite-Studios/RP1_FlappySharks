@@ -1,8 +1,7 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEditor;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,17 +30,24 @@ public class GameManager : MonoBehaviour
     private GameObject PauseMenu;
     [SerializeField]
     private GameObject DeathMenu;
+    [SerializeField]
+    private GameObject Bubble;
 
     private bool paused = false;
     private bool dead = false;
+
+    public bool hasPowerUp = false;
+
     public int score { get; private set; }
     private int highscore; // increments the value by 2 if its public, need to figure it out
 
+    private SpriteRenderer spriteRenderer;
     Timer timer;
 
     private void Awake()
     {
         timer = GetComponentInChildren<Timer>();
+        spriteRenderer = Bubble.GetComponent<SpriteRenderer>();
 
         player = GetComponentInChildren<Player>();
         spawner = GetComponentInChildren<Spawner>();
@@ -50,7 +56,7 @@ public class GameManager : MonoBehaviour
         DeathMenu.SetActive(false);
         PauseMenu.SetActive(false);
     }
-
+ 
     public void Retry()
     {
         dead = false;
@@ -80,6 +86,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        hasPowerUp = false;
         dead = true;
         Time.timeScale = 0f;
         player.enabled = false;
@@ -94,7 +101,7 @@ public class GameManager : MonoBehaviour
         }
         //else no change
         //
-        
+
     }
 
     public void Paused()
@@ -106,7 +113,7 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 0f;
 
-        
+
     }
 
     public void IncreaseScore()
@@ -133,6 +140,11 @@ public class GameManager : MonoBehaviour
             else          // if its paused resume when pressed again
                 Resume();
         }
+
+        if (hasPowerUp)
+            Bubble.SetActive(true);
+        else
+            Bubble.SetActive(false);
     }
 
     public void Resume()
@@ -147,8 +159,47 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f;
             player.enabled = true;
             PauseMenu.SetActive(false);
-        }
+        }                                                                  
     }
 
+    public IEnumerator DisablePowerUpAfterDelay(float delay)
+    {
+        float timer = 0f;
+        float initialAlpha = spriteRenderer.color.a;
 
+        while (timer < delay)
+        {
+            timer += Time.deltaTime;
+            float alpha = Mathf.Lerp(initialAlpha, 0f, timer / delay);
+            if (spriteRenderer != null)
+            {
+                Color color = spriteRenderer.color;
+                color.a = alpha;
+                spriteRenderer.color = color;
+            }
+
+            yield return null;
+        }
+
+        hasPowerUp = false;
+    }
+
+    public void StartBlinking(float blinkingDuration, float blinkInterval)
+    {
+        StopCoroutine(BlinkSprite());
+        StartCoroutine(BlinkSprite());
+
+        IEnumerator BlinkSprite()
+        {
+            float endTime = Time.time + blinkingDuration;
+            while (Time.time < endTime)
+            {
+                spriteRenderer.enabled = !spriteRenderer.enabled;
+                yield return new WaitForSeconds(blinkInterval);
+            }
+            spriteRenderer.enabled = true;
+        }
+    }
 }
+
+  

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Vector3 direction;
+
     [SerializeField]
     private float gravity = -9.8f;
 
@@ -55,7 +56,7 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.gameObject.tag == "obstacle")
+        if (other.gameObject.tag == "obstacle" && !GameManager.Instance.hasPowerUp || other.gameObject.tag == "border")
         {
             GameManager.Instance.GameOver();
         }                                    
@@ -63,9 +64,18 @@ public class Player : MonoBehaviour
         {
             GameManager.Instance.IncreaseScore();
         }
+        else if (other.gameObject.tag == "collectable")
+        {
+            Destroy(other.gameObject);
+            GameManager.Instance.hasPowerUp = true;
+            //wait 5 seconds and make it false
+            StartCoroutine(GameManager.Instance.DisablePowerUpAfterDelay(15));
+        }
     }
+   
     public void ResetGravity()
     {
         direction.y = 0;
     }
+
 }
