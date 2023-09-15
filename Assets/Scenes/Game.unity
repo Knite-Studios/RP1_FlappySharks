@@ -1334,11 +1334,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 3905772467613077065, guid: 2d21fd9237ba419459e6933322b287ff, type: 3}
+  - {fileID: 3905772467613077065, guid: 959edc5697c237d40a6c55881ee1d2e6, type: 3}
   - {fileID: 3905772467613077065, guid: db3221cbd5f93614aaf592019f2a97d5, type: 3}
   spawnRate: 1.5
   minHeight: -1
   maxHeight: 0
+  speed: 5
 --- !u!4 &628479411
 Transform:
   m_ObjectHideFlags: 0

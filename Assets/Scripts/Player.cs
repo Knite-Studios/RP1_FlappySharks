@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Vector3 direction;
-
     [SerializeField]
     private float gravity = -9.8f;
 
@@ -69,5 +68,4 @@ public class Player : MonoBehaviour
     {
         direction.y = 0;
     }
-
 }

@@ -16,6 +16,9 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private float maxHeight = 2f;
 
+    [SerializeField]
+    private float speed = 5f;
+    GameObject obstacle;
     int randomObstacle;
     // Start is called before the first frame update
     private void OnEnable()
@@ -25,8 +28,15 @@ public class Spawner : MonoBehaviour
     private void Spawn()
     {
         randomObstacle = Random.Range(0, prefabs.Length);
-        GameObject obstacle = Instantiate(prefabs[randomObstacle], transform.position, Quaternion.identity);
+        obstacle = Instantiate(prefabs[randomObstacle], transform.position, Quaternion.identity);
         obstacle.transform.position += Vector3.up * Random.Range(minHeight, maxHeight);
+
+        Obstacles obstaclesScript = obstacle.GetComponent<Obstacles>();
+        if (obstaclesScript != null)
+        {
+            float newSpeed = speed +10; 
+            obstaclesScript.SetSpeed(newSpeed);
+        }
     }
     private void OnDisable()
     {
@@ -35,6 +45,6 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+   
     }
 }
