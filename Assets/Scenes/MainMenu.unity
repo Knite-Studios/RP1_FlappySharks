@@ -396,8 +396,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Flappy Shark
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e68939a6077d56d46aa7a55602741f52, type: 2}
-  m_sharedMaterial: {fileID: -9152509233523843643, guid: e68939a6077d56d46aa7a55602741f52, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 66a52934d2e78f34ea3da63ba139d49b, type: 2}
+  m_sharedMaterial: {fileID: 5651386826230610447, guid: 66a52934d2e78f34ea3da63ba139d49b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -421,8 +421,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -800,8 +800,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Team
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e68939a6077d56d46aa7a55602741f52, type: 2}
-  m_sharedMaterial: {fileID: -9152509233523843643, guid: e68939a6077d56d46aa7a55602741f52, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 66a52934d2e78f34ea3da63ba139d49b, type: 2}
+  m_sharedMaterial: {fileID: 5651386826230610447, guid: 66a52934d2e78f34ea3da63ba139d49b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1310,8 +1310,8 @@ MonoBehaviour:
     Artists -
     Musse, Yufen'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 10e982ae33eb78a488340cad3ec780dc, type: 2}
-  m_sharedMaterial: {fileID: -3802048220742275718, guid: 10e982ae33eb78a488340cad3ec780dc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 66a52934d2e78f34ea3da63ba139d49b, type: 2}
+  m_sharedMaterial: {fileID: 5651386826230610447, guid: 66a52934d2e78f34ea3da63ba139d49b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
