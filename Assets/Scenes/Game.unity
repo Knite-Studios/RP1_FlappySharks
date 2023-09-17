@@ -1018,7 +1018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b728a6484a6067a4abf5a04d68940077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leaderboard: {fileID: 0}
+  _leaderboard: {fileID: 277584860}
   scoreFields:
   - {fileID: 1671018588}
   - {fileID: 1488071620}
@@ -2378,6 +2378,7 @@ MonoBehaviour:
   PauseMenu: {fileID: 720266250}
   DeathMenu: {fileID: 1024145075}
   Bubble: {fileID: 871345118}
+  _leaderboard: {fileID: 277584863}
   hasPowerUp: 0
   inputField: {fileID: 239546993}
   submitScoreEvent:
@@ -2639,7 +2640,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 771214961}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: submitScore
+        m_MethodName: SubmitScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2785,7 +2786,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 771214961}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: exit
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3968,7 +3969,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 771214961}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: exit
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -35,11 +35,6 @@ public class LeaderBoardManager : MonoBehaviour
         _leaderboard.SetActive(false);
     }
 
-    void Update()
-    {
-       
-    }
-
     public void TurnOffLeaderBoard()
     {
       _leaderboard.SetActive(false);  

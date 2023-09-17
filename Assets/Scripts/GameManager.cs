@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
         }
     }
     private Player player;
-    private Spawner spawner;
 
     [SerializeField]
     private TMP_Text highscoreText;
@@ -40,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     public bool hasPowerUp = false;
 
-    public int score { get; private set; }
+    public int Score { get; private set; }
     private int highscore; // increments the value by 2 if its public, need to figure it out
 
     [SerializeField]
@@ -55,7 +54,6 @@ public class GameManager : MonoBehaviour
         spriteRenderer = Bubble.GetComponent<SpriteRenderer>();
 
         player = GetComponentInChildren<Player>();
-        spawner = GetComponentInChildren<Spawner>();
         highscore = PlayerPrefs.GetInt("highscore", 0);
         highscoreText.text = highscore.ToString();
         DeathMenu.SetActive(false);
@@ -65,8 +63,8 @@ public class GameManager : MonoBehaviour
     public void Retry()
     {
         dead = false;
-        score = 0;
-        scoreText.text = score.ToString();
+        Score = 0;
+        scoreText.text = Score.ToString();
         highscoreText.text = highscore.ToString();
         player.transform.position = player.originalPosition;
         player.enabled = true;
@@ -101,9 +99,9 @@ public class GameManager : MonoBehaviour
         PauseMenu.SetActive(false);
         DeathMenu.SetActive(true);
         highscore = PlayerPrefs.GetInt("highscore", 0);//highscore = 0
-        if (highscore < score)//if new score greater than current highscore, then highscore=new score.
+        if (highscore < Score)//if new score greater than current highscore, then highscore=new score.
         {
-            PlayerPrefs.SetInt("highscore", score);//save highscore
+            PlayerPrefs.SetInt("highscore", Score);//save highscore
         }
         //else no change
         //
@@ -124,16 +122,16 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseScore()
     {
-        score++;
-        scoreText.text = score.ToString();
-        if (highscore < score)
+        Score++;
+        scoreText.text = Score.ToString();
+        if (highscore < Score)
         {
-            highscore = score;
+            highscore = Score;
             highscoreText.text = highscore.ToString();
         }
     }
 
-    public void exit()
+    public void Exit()
     {
         SceneManager.LoadScene("MainMenu");
     }
@@ -210,9 +208,9 @@ public class GameManager : MonoBehaviour
 
     public UnityEvent<string, int> submitScoreEvent;
 
-    public void submitScore()
+    public void SubmitScore()
     {
-        submitScoreEvent.Invoke(inputField.text, score);
+        submitScoreEvent.Invoke(inputField.text, Score);
     }
 
     #endregion
