@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
-
+using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     private GameObject DeathMenu;
     [SerializeField]
     private GameObject Bubble;
+    [SerializeField]
+    LeaderBoardManager _leaderboard;
 
     private bool paused = false;
     private bool dead = false;
@@ -41,6 +43,9 @@ public class GameManager : MonoBehaviour
     public int score { get; private set; }
     private int highscore; // increments the value by 2 if its public, need to figure it out
 
+    [SerializeField]
+    private TMP_InputField inputField;
+    
     private SpriteRenderer spriteRenderer;
     Timer timer;
 
@@ -92,6 +97,7 @@ public class GameManager : MonoBehaviour
         player.enabled = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        _leaderboard.TurnOnLeaderBoard();
         PauseMenu.SetActive(false);
         DeathMenu.SetActive(true);
         highscore = PlayerPrefs.GetInt("highscore", 0);//highscore = 0
@@ -200,6 +206,16 @@ public class GameManager : MonoBehaviour
             spriteRenderer.enabled = true;
         }
     }
+    #region LEADERBOARD
+
+    public UnityEvent<string, int> submitScoreEvent;
+
+    public void submitScore()
+    {
+        submitScoreEvent.Invoke(inputField.text, score);
+    }
+
+    #endregion
 }
 
-  
+

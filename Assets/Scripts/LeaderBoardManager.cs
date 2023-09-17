@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Dan.Main;
+using System.Linq;
 
 public class LeaderBoardManager : MonoBehaviour
 {
@@ -21,34 +23,56 @@ public class LeaderBoardManager : MonoBehaviour
     }
 
     [SerializeField]
-    private TextMeshProUGUI TextPrefab;
+    GameObject _leaderboard;
 
-    int numUsers = 5;//testing remove number
+    [SerializeField]
     private TextMeshProUGUI[] scoreFields;//this score fields is based on the number of users and their respective values
-
-    int tempScore = 100;    //test variables remove for score and user input 
-    string tempUser = "user";
 
     void Start()
     {
-        scoreFields = new TextMeshProUGUI[numUsers];
 
-        for (int i = 0; i < numUsers; i++)
-        {
-            //here we need to setup our text fields
-            scoreFields[i] = Instantiate(TextPrefab);
-            scoreFields[i].transform.SetParent(TextPrefab.transform.parent, false);
-
-        }
-        Destroy(TextPrefab.gameObject);
-
+        GetLeaderBoard();
+        _leaderboard.SetActive(false);
     }
 
     void Update()
     {
-        for (int i = 0; i < numUsers; i++)
-        {
-            scoreFields[i].text = string.Format("{0} score:{1}",tempUser , tempScore.ToString());// replace for username on first and score on second 
-        }
+       
     }
+
+    public void TurnOffLeaderBoard()
+    {
+      _leaderboard.SetActive(false);  
+    }
+    public void TurnOnLeaderBoard()
+    {
+       _leaderboard.SetActive(true);
+    }
+
+    #region LEADER BOARD CODE
+    private string publicLeaderBoardKey = "f3b7bdef4996f7fb722c533afce42070aca3377fd8feed2483cf92315559def9";
+    public void GetLeaderBoard()
+    {
+        LeaderboardCreator.GetLeaderboard(publicLeaderBoardKey, ((msg) =>
+        {
+            int loopLength = (msg.Length < scoreFields.Length) ? msg.Length : scoreFields.Length; 
+            for (int i = 0; i < loopLength; i++)
+            {
+                scoreFields[i].text = string.Format("{0} score:{1}", msg[i].Username, msg[i].Score.ToString());
+
+            }
+        }));
+    }
+
+    public void SetLeaderBoardEntry(string username, int score)
+    {
+
+        LeaderboardCreator.UploadNewEntry(publicLeaderBoardKey, username, score, ((msg) =>
+        {
+        GetLeaderBoard();
+        }));
+
+    }
+
+    #endregion
 }
