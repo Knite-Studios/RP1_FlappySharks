@@ -1708,7 +1708,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2446c5867ad981948b3cd6b5631b5aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  albumSongs: []
+  albumSongs:
+  - {fileID: 8300000, guid: 512ab164eb062c443b881c864895923d, type: 3}
   credits: {fileID: 1781371721}
   notMuted: {fileID: 945925044}
   muted: {fileID: 46579646}

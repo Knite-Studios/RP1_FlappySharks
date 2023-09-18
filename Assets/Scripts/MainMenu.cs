@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject credits;
 
-   [SerializeField]
+    [SerializeField]
     private GameObject notMuted;
     [SerializeField]
     private GameObject muted;
@@ -32,11 +32,11 @@ public class MainMenu : MonoBehaviour
     void Awake()
     {
         mainMenuMusic = GetComponent<AudioSource>();
-         credits.SetActive(false);
+        credits.SetActive(false);
 
         if (albumSongs != null && albumSongs.Length > 0)
             PlaySong();
-        else 
+        else
             Debug.Log("no Music please fix by adding sounds to array named album songs");
     }
     void PlaySong()
@@ -48,12 +48,12 @@ public class MainMenu : MonoBehaviour
     }
     public void ToggleMute()
     {
-        
+
         isMuted = !isMuted;
 
 
-      //  VolumeButton.image.sprite = volumeSprites[0];
-        
+        //  VolumeButton.image.sprite = volumeSprites[0];
+
         mainMenuMusic.mute = isMuted;
     }
     public void ToggleCredit()
@@ -68,10 +68,15 @@ public class MainMenu : MonoBehaviour
     }
     private void Update()
     {
-            muted.SetActive(isMuted);
-            notMuted.SetActive(!isMuted);    
+        muted.SetActive(!isMuted);
+        notMuted.SetActive(isMuted);
+
+        if (!mainMenuMusic.isPlaying)
+        {
+            PlaySong();
+        }
     }
-    public void Exit()                 
+    public void Exit()
     {
         Application.Quit();
         EditorApplication.isPlaying = false;

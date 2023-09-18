@@ -56,15 +56,15 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.gameObject.tag == "obstacle" && !GameManager.Instance.hasPowerUp || other.gameObject.tag == "border")
+        if (other.gameObject.CompareTag("obstacle") && !GameManager.Instance.hasPowerUp || other.gameObject.CompareTag("border"))
         {
             GameManager.Instance.GameOver();
         }                                    
-        else if (other.gameObject.tag == "score")
+        else if (other.gameObject.CompareTag("score"))
         {
             GameManager.Instance.IncreaseScore();
         }
-        else if (other.gameObject.tag == "collectable")
+        else if (other.gameObject.CompareTag("collectable"))
         {
             Destroy(other.gameObject);
             GameManager.Instance.hasPowerUp = true;
