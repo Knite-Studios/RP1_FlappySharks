@@ -53,7 +53,7 @@ public class LeaderBoardManager : MonoBehaviour
             int loopLength = (msg.Length < scoreFields.Length) ? msg.Length : scoreFields.Length; 
             for (int i = 0; i < loopLength; i++)
             {
-                scoreFields[i].text = string.Format("{0} score:{1}", msg[i].Username, msg[i].Score.ToString());
+                scoreFields[i].text = string.Format("{0} : {1}", msg[i].Username, msg[i].Score.ToString());
 
             }
         }));
