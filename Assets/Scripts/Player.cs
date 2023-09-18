@@ -21,10 +21,13 @@ public class Player : MonoBehaviour
 
     public Vector3 originalPosition;
     // Start is called before the first frame update
+
+    AudioSource pickUp;
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalPosition = transform.position;
+        pickUp = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -68,6 +71,7 @@ public class Player : MonoBehaviour
         {
             Destroy(other.gameObject);
             GameManager.Instance.hasPowerUp = true;
+            pickUp.Play();
             //wait 5 seconds and make it false
             StartCoroutine(GameManager.Instance.DisablePowerUpAfterDelay(15));
         }
