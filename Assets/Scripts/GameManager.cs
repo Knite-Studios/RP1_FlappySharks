@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
         highscoreText.text = highscore.ToString();
         DeathMenu.SetActive(false);
         PauseMenu.SetActive(false);
+
     }
  
     public void Retry()
@@ -89,6 +90,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+
         hasPowerUp = false;
         dead = true;
         Time.timeScale = 0f;
@@ -114,6 +116,7 @@ public class GameManager : MonoBehaviour
         PauseMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        _leaderboard.TurnOnLeaderBoard();
 
         Time.timeScale = 0f;
 
