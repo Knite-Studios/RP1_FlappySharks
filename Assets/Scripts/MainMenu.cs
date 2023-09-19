@@ -22,11 +22,6 @@ public class MainMenu : MonoBehaviour
     private GameObject credits;
 
     [SerializeField]
-    private GameObject notMuted;
-    [SerializeField]
-    private GameObject muted;
-
-    [SerializeField]
     private GameObject Settings;
 
     [SerializeField]
@@ -68,9 +63,6 @@ public class MainMenu : MonoBehaviour
 
         isMuted = !isMuted;
 
-
-        //  VolumeButton.image.sprite = volumeSprites[0];
-
         mainMenuMusic.mute = isMuted;
     }
     public void ToggleSettings()
@@ -90,9 +82,7 @@ public class MainMenu : MonoBehaviour
     }
     private void Update()
     {
-        muted.SetActive(!isMuted);
-        notMuted.SetActive(isMuted);
-
+       
         if (!mainMenuMusic.isPlaying)
         {
             PlaySong();
