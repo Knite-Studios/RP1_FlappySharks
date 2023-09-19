@@ -25,8 +25,7 @@ public class AudioManager : MonoBehaviour
     private bool isMuted = false;
     private int songNumber = 0;
 
-    [SerializeField]
-    private Scrollbar volume;
+    //[SerializeField]    private Scrollbar volume;
 
     /*[SerializeField]
     private GameObject notMuted;
@@ -42,7 +41,7 @@ public class AudioManager : MonoBehaviour
     void Awake()
     {
         mainSpeaker = GetComponent<AudioSource>();
-        volume.value = mainSpeaker.volume;
+        //volume.value = mainSpeaker.volume;
 
         if (albumSongs != null && albumSongs.Length > 0)
             PlaySong();
@@ -66,11 +65,11 @@ public class AudioManager : MonoBehaviour
 
         mainSpeaker.mute = isMuted;
     }
-    public void ChangeVolume()
-    {
-        mainSpeaker.volume = volume.value;
+    //public void ChangeVolume()
+    //{
+    //    mainSpeaker.volume = volume.value;
 
-    }
+    //}
     private void Update()
     {
         /* muted.SetActive(!isMuted);
