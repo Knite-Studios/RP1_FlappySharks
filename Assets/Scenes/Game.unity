@@ -1750,8 +1750,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 771214961}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: ToggleSettings
         m_Mode: 1
         m_Arguments:
@@ -3137,7 +3137,7 @@ MonoBehaviour:
   - {fileID: 3905772467613077065, guid: db3221cbd5f93614aaf592019f2a97d5, type: 3}
   - {fileID: 3905772467613077065, guid: f633473cb1c153349a49f64995f95f5e, type: 3}
   spawnRate: 1.5
-  minHeight: -1
+  minHeight: -0.5
   maxHeight: 0
 --- !u!4 &628479411
 Transform:
@@ -3759,7 +3759,19 @@ MonoBehaviour:
   inputField: {fileID: 239546993}
   submitScoreEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 277584863}
+        m_TargetAssemblyTypeName: LeaderBoardManager, Assembly-CSharp
+        m_MethodName: SetLeaderBoardEntry
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &771214962
 Transform:
   m_ObjectHideFlags: 0
