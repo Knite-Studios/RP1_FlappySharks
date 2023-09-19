@@ -24,8 +24,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject Settings;
 
-    [SerializeField]
-    private Scrollbar volume;
+   /* [SerializeField]
+    private Scrollbar volume;*/
 
     /*[SerializeField]
     private Sprite[] volumeSprites;
@@ -38,7 +38,7 @@ public class MainMenu : MonoBehaviour
         credits.SetActive(false);
         Settings.SetActive(false);
 
-        volume.value = mainMenuMusic.volume;
+        //volume.value = mainMenuMusic.volume;
 
         if (albumSongs != null && albumSongs.Length > 0)
             PlaySong();
@@ -53,11 +53,11 @@ public class MainMenu : MonoBehaviour
         songNumber = (songNumber + 1) % albumSongs.Length;
     }
 
-    public void ChangeVolume()
+   /* public void ChangeVolume()
     {
         mainMenuMusic.volume = volume.value;
 
-    }
+    }*/
    public void ToggleMute()
     {
 

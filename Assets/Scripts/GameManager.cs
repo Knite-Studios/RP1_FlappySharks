@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.Events;
 using UnityEditor;
@@ -190,21 +189,13 @@ public class GameManager : MonoBehaviour
         }                                                                  
     }
 
-    public IEnumerator DisablePowerUpAfterDelay(float delay)
+    public IEnumerator PowerUpTimer(float delay)
     {
         float timer = 0f;
-        float initialAlpha = spriteRenderer.color.a;
 
         while (timer < delay)
         {
             timer += Time.deltaTime;
-            float alpha = Mathf.Lerp(initialAlpha, 0f, timer / delay);
-            if (spriteRenderer != null)
-            {
-                Color color = spriteRenderer.color;
-                color.a = alpha;
-                spriteRenderer.color = color;
-            }
 
             yield return null;
         }
@@ -212,22 +203,6 @@ public class GameManager : MonoBehaviour
         hasPowerUp = false;
     }
 
-    public void StartBlinking(float blinkingDuration, float blinkInterval)
-    {
-        StopCoroutine(BlinkSprite());
-        StartCoroutine(BlinkSprite());
-
-        IEnumerator BlinkSprite()
-        {
-            float endTime = Time.time + blinkingDuration;
-            while (Time.time < endTime)
-            {
-                spriteRenderer.enabled = !spriteRenderer.enabled;
-                yield return new WaitForSeconds(blinkInterval);
-            }
-            spriteRenderer.enabled = true;
-        }
-    }
     #region LEADERBOARD
 
     public UnityEvent<string, int> submitScoreEvent;

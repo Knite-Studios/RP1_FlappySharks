@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float strength = 5f;
 
+    [SerializeField]
+    private int powerUpTime = 5;
+
     private SpriteRenderer spriteRenderer;
 
     [SerializeField]
@@ -73,7 +76,7 @@ public class Player : MonoBehaviour
             GameManager.Instance.hasPowerUp = true;
             pickUp.Play();
             //wait 5 seconds and make it false
-            StartCoroutine(GameManager.Instance.DisablePowerUpAfterDelay(15));
+            StartCoroutine(GameManager.Instance.PowerUpTimer(powerUpTime));
         }
     }
    
