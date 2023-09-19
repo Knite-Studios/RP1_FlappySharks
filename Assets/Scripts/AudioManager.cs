@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class AudioManager : MonoBehaviour
     private bool isMuted = false;
     private int songNumber = 0;
 
+    [SerializeField]
+    private Scrollbar volume;
+
     /*[SerializeField]
     private GameObject notMuted;
     [SerializeField]
@@ -38,6 +42,7 @@ public class AudioManager : MonoBehaviour
     void Awake()
     {
         mainSpeaker = GetComponent<AudioSource>();
+        volume.value = mainSpeaker.volume;
 
         if (albumSongs != null && albumSongs.Length > 0)
             PlaySong();
@@ -61,7 +66,11 @@ public class AudioManager : MonoBehaviour
 
         mainSpeaker.mute = isMuted;
     }
+    public void ChangeVolume()
+    {
+        mainSpeaker.volume = volume.value;
 
+    }
     private void Update()
     {
         /* muted.SetActive(!isMuted);

@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.Events;
+using UnityEditor;
+
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
@@ -30,12 +32,18 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject DeathMenu;
     [SerializeField]
+    private GameObject QuitMenu;
+    [SerializeField]
+    private GameObject Settings;
+    [SerializeField]
     private GameObject Bubble;
     [SerializeField]
     LeaderBoardManager _leaderboard;
 
     private bool paused = false;
     private bool dead = false;
+    private bool quitMenuIs = false;
+    private bool settingIsOn = false;
 
     public bool hasPowerUp = false;
 
@@ -58,9 +66,21 @@ public class GameManager : MonoBehaviour
         highscoreText.text = highscore.ToString();
         DeathMenu.SetActive(false);
         PauseMenu.SetActive(false);
+        QuitMenu.SetActive(false);
+        Settings.SetActive(false);
 
     }
- 
+
+    public void ToggleQuitMenu()
+    {
+        quitMenuIs = !quitMenuIs;
+        QuitMenu.SetActive(quitMenuIs);
+    }
+    public void ToggleSettings()
+    {
+        settingIsOn = !settingIsOn;
+        Settings.SetActive(settingIsOn);
+    }
     public void Retry()
     {
         dead = false;
@@ -136,7 +156,8 @@ public class GameManager : MonoBehaviour
 
     public void Exit()
     {
-        SceneManager.LoadScene("MainMenu");
+        Application.Quit();
+        EditorApplication.isPlaying = false;
     }
     private void Update()
     {

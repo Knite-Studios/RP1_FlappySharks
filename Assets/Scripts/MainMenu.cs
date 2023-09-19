@@ -7,11 +7,14 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField]
     AudioSource mainMenuMusic;
     [SerializeField]
     private AudioClip[] albumSongs;
 
-    private bool displayIsOn = false;
+    private bool creditsIsOn = false;
+    private bool settingIsOn = false;
+
     private bool isMuted = false;
     private int songNumber = 0;
 
@@ -23,6 +26,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject muted;
 
+    [SerializeField]
+    private GameObject Settings;
+
+    [SerializeField]
+    private Scrollbar volume;
 
     /*[SerializeField]
     private Sprite[] volumeSprites;
@@ -33,6 +41,9 @@ public class MainMenu : MonoBehaviour
     {
         mainMenuMusic = GetComponent<AudioSource>();
         credits.SetActive(false);
+        Settings.SetActive(false);
+
+        volume.value = mainMenuMusic.volume;
 
         if (albumSongs != null && albumSongs.Length > 0)
             PlaySong();
@@ -46,7 +57,13 @@ public class MainMenu : MonoBehaviour
 
         songNumber = (songNumber + 1) % albumSongs.Length;
     }
-    public void ToggleMute()
+
+    public void ChangeVolume()
+    {
+        mainMenuMusic.volume = volume.value;
+
+    }
+   public void ToggleMute()
     {
 
         isMuted = !isMuted;
@@ -56,10 +73,15 @@ public class MainMenu : MonoBehaviour
 
         mainMenuMusic.mute = isMuted;
     }
+    public void ToggleSettings()
+    {
+        settingIsOn = !settingIsOn;
+        Settings.SetActive(settingIsOn);
+    }
     public void ToggleCredit()
     {
-        displayIsOn = !displayIsOn;
-        credits.SetActive(displayIsOn);
+        creditsIsOn = !creditsIsOn;
+        credits.SetActive(creditsIsOn);
     }
     public void PlayGame()
     {
