@@ -45,7 +45,7 @@ public class LeaderBoardManager : MonoBehaviour
     }
 
     #region LEADER BOARD CODE
-    private string publicLeaderBoardKey = "f3b7bdef4996f7fb722c533afce42070aca3377fd8feed2483cf92315559def9";
+    private readonly string publicLeaderBoardKey = "f3b7bdef4996f7fb722c533afce42070aca3377fd8feed2483cf92315559def9";
     public void GetLeaderBoard()
     {
         LeaderboardCreator.GetLeaderboard(publicLeaderBoardKey, ((msg) =>
