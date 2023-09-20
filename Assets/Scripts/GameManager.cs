@@ -38,14 +38,12 @@ public class GameManager : MonoBehaviour
     private GameObject Bubble;
     [SerializeField]
     LeaderBoardManager _leaderboard;
-    [SerializeField]
-    private GameObject muteIcon;
 
     private bool paused = false;
     private bool dead = false;
     private bool quitMenuIs = false;
     private bool settingIsOn = false;
-    private bool isMuted = false;
+
     public bool hasPowerUp = false;
 
     public int Score { get; private set; }
@@ -69,15 +67,7 @@ public class GameManager : MonoBehaviour
         PauseMenu.SetActive(false);
         QuitMenu.SetActive(false);
         Settings.SetActive(false);
-        muteIcon.SetActive(isMuted);
 
-    }
-    public void ToggleMute()
-    {
-
-        isMuted = !isMuted;
-        muteIcon.SetActive(isMuted);
-        AudioManager.Instance.mainSpeaker.mute = isMuted;
     }
 
     public void ToggleQuitMenu()

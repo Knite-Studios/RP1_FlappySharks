@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public AudioSource mainSpeaker;
+    AudioSource mainSpeaker;
     [SerializeField]
     private AudioClip[] albumSongs;
 
