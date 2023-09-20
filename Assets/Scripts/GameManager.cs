@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private TMP_InputField inputField;
-    
+
     private SpriteRenderer spriteRenderer;
     Timer timer;
 
@@ -162,10 +162,18 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !dead)//get enter button
         {
-            if (!paused)  //pause menu if not paused
+            if (!paused) //pause menu if not paused
+            {
                 Paused();
-            else          // if its paused resume when pressed again
+                LeaderBoardManager.Instance.TurnOnLeaderBoard();
+
+            }
+
+            else  // if its paused resume when pressed again
+            {
                 Resume();
+                LeaderBoardManager.Instance.TurnOffLeaderBoard();
+            }
         }
 
         if (hasPowerUp)
@@ -186,7 +194,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f;
             player.enabled = true;
             PauseMenu.SetActive(false);
-        }                                                                  
+        }
     }
 
     public IEnumerator PowerUpTimer(float delay)

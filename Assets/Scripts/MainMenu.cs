@@ -19,7 +19,9 @@ public class MainMenu : MonoBehaviour
     private int songNumber = 0;
 
     [SerializeField]
-    private GameObject credits;
+    private GameObject credits; 
+    [SerializeField]
+    private GameObject muteIcon;
 
     [SerializeField]
     private GameObject Settings;
@@ -37,6 +39,7 @@ public class MainMenu : MonoBehaviour
         mainMenuMusic = GetComponent<AudioSource>();
         credits.SetActive(false);
         Settings.SetActive(false);
+        muteIcon.SetActive(isMuted);
 
         //volume.value = mainMenuMusic.volume;
 
@@ -62,7 +65,7 @@ public class MainMenu : MonoBehaviour
     {
 
         isMuted = !isMuted;
-
+        muteIcon.SetActive(isMuted);
         mainMenuMusic.mute = isMuted;
     }
     public void ToggleSettings()
