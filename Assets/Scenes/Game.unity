@@ -2026,8 +2026,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 3905772467613077065, guid: 2d21fd9237ba419459e6933322b287ff, type: 3}
-  - {fileID: 3905772467613077065, guid: db3221cbd5f93614aaf592019f2a97d5, type: 3}
   - {fileID: 3905772467613077065, guid: f633473cb1c153349a49f64995f95f5e, type: 3}
+  - {fileID: 3905772467613077065, guid: db3221cbd5f93614aaf592019f2a97d5, type: 3}
+  - {fileID: 3905772467613077065, guid: 8c199f5b04bb85749a86ece3303f89bb, type: 3}
+  - {fileID: 3905772467613077065, guid: d7dd8a19eee44724bb363bb0d8c78593, type: 3}
   spawnRate: 1.5
   minHeight: -0.5
   maxHeight: 0
