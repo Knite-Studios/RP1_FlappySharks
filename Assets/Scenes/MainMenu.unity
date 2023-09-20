@@ -1044,7 +1044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1717191289
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1677,7 +1677,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 512ab164eb062c443b881c864895923d, type: 3}
   credits: {fileID: 2060681927}
   Settings: {fileID: 660419915}
-  volume: {fileID: 0}
 --- !u!82 &2012425768
 AudioSource:
   m_ObjectHideFlags: 0
